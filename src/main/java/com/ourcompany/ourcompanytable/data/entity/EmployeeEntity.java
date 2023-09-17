@@ -22,7 +22,7 @@ public class EmployeeEntity {
     @Nullable
     private Long bDate;
 
-    public EmployeeEntity(String name, Long bDate) {
+    public EmployeeEntity(String name, @Nullable Long bDate) {
         this.name = name;
         this.bDate = bDate;
     }
