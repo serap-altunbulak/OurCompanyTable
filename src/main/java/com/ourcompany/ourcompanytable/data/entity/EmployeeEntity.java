@@ -17,6 +17,7 @@ public class EmployeeEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String guid;
 
+    @Column(unique = true)
     private String name;
 
     @Nullable

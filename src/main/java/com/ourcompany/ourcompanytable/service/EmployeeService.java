@@ -41,12 +41,12 @@ public class EmployeeService {
         employeeRepository.save(employeeConverter.employee2Entity(employeeDto));
     }
 
-    public void updateEmployee(EmployeeEntity employeeEntity) {
-        if(employeeRepository.existsById(employeeEntity.getGuid())) {
-            employeeRepository.save(employeeEntity);
+    public void updateEmployee(EmployeeDto employeeDto) {
+        if(employeeRepository.existsEmployeeEntityByName(employeeDto.getName())) {
+            employeeRepository.save(employeeConverter.employee2EntityWithId(employeeDto, employeeRepository.findEmployeeEntityByName(employeeDto.getName()).getGuid()));
         }
         else {
-            throw new IllegalArgumentException("(updateEmployee) employee not found " + employeeEntity);
+            throw new IllegalArgumentException("(updateEmployee) employee not found " + employeeDto);
         }
     }
 
